@@ -1,12 +1,21 @@
 import React from "react";
-import { Text, View, ViewBase, ViewComponent } from "react-native";
+import Constants from 'expo-constants';
+import { Text, View, StyleSheet } from "react-native";
+import ListRepos from "./ListRepos";
 
 const Main = () => {
     return (
-        <View>
-            <Text>Puntaje de repositorio</Text>
+        <View style={styles.fondo}>
+            <ListRepos></ListRepos>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    fondo:{
+        marginTop: Constants.statusBarHeight,
+        flexGrow: 1,
+    }
+})
 
 export default Main;

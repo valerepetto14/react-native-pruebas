@@ -1,16 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
-import data from "../../data/data";
+import { FlatList } from "react-native";
+import repos from "../data/repos.js";
+import ItemRepo from "./ItemsRepo.jsx";
 
 const ListRepos = () => {
   return (
-    <View>
-      // necesitamos correr atraves de nuestros datos
-      {data.map((el) => {
-        <View key={el.id}>
-          <Text>{el.id}</Text>
-        </View>;
-      })}
-    </View>
-  );
-};
+    <FlatList 
+      data={repos}
+      renderItem={({ item:repo}) => (
+        <ItemRepo {...repo}/>
+      )}></FlatList>  
+    )
+}
+
+export default ListRepos;
