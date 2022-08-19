@@ -5,12 +5,11 @@ import ItemRepo from "./ItemsRepo.jsx";
 
 const ListRepos = () => {
   return (
-    <FlatList 
+    <FlatList
       data={repos}
-      renderItem={({ item:repo}) => (
-        <ItemRepo {...repo}/>
-      )}></FlatList>  
-    )
-}
+      renderItem={({ item: repo }) => <ItemRepo {...repo} />}
+    ></FlatList>
+  );
+};
 
 export default ListRepos;
