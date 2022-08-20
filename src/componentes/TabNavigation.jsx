@@ -5,6 +5,7 @@ import Main from "./Main";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "@rneui/themed";
+import { Ionicons } from "@expo/vector-icons";
 // probandooo
 
 // import Main from "../componentes/Main";
@@ -37,17 +38,44 @@ export default function TabNavigation() {
         tabBarOptions={{
           activeTintColor: "#fff",
           inactiveTintColor: "lightgray",
-          activeBackgroundColor: "#53AEFF",
-          inactiveBackgroundColor: "#64B6FF",
+          activeBackgroundColor: "#2B4865",
+          inactiveBackgroundColor: "#002B5B",
           style: {
             backgroundColor: "#CE4418",
             paddingBottom: 3,
           },
         }}
       >
-        <Tab.Screen name="Repositorios" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-        <Tab.Screen name="repos" component={RepoStack} />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            tabBarLabel: "Ajustes",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="settings" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Repositorios"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: "Home",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="repos"
+          component={RepoStack}
+          options={{
+            tabBarLabel: "Cuenta",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="person" color={color} size={size} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
