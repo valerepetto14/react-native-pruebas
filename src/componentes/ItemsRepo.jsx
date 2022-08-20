@@ -1,17 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Button, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import StyledText from "./StyledText";
 import StyleTitle from "./StyleTitle";
 import RepoNavigator from "../navigators/RepoNavigator";
 import { useNavigation } from "@react-navigation/native";
+import RepoStack from "../navigators/RepoNavigator";
 import RepoDetails from "../screens/RepoDetails";
 
-
 const ItemRepo = (props) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <View key={props.id} style={styles.container}>
-      <TouchableOpacity onPress={() => {navigation.navigate('epoDetails')}} activeOpacity={0.45}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("repoDetails")}
+        activeOpacity={0.45}
+      >
         <View style={styles.titleDiv}>
           <View style={styles.numContainer}>
             <StyledText white bold>
@@ -26,6 +30,12 @@ const ItemRepo = (props) => {
         <StyledText grey center small>
           {props.descripcion}
         </StyledText>
+        {/* <Button
+        title="ver detalles"
+        onPress={() => {
+          navigation.navigate("repoDetails");
+        }}
+      /> */}
       </TouchableOpacity>
     </View>
   );
