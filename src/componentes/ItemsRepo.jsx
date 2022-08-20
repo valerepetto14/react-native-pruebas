@@ -2,11 +2,16 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import StyledText from "./StyledText";
 import StyleTitle from "./StyleTitle";
+import RepoNavigator from "../navigators/RepoNavigator";
+import { useNavigation } from "@react-navigation/native";
+import RepoDetails from "../screens/RepoDetails";
+
 
 const ItemRepo = (props) => {
+  const navigation = useNavigation()
   return (
     <View key={props.id} style={styles.container}>
-      <TouchableOpacity activeOpacity={0.45}>
+      <TouchableOpacity onPress={() => {navigation.navigate('epoDetails')}} activeOpacity={0.45}>
         <View style={styles.titleDiv}>
           <View style={styles.numContainer}>
             <StyledText white bold>

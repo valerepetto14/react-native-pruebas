@@ -13,7 +13,6 @@ const Main = () => {
 
 const styles = StyleSheet.create({
     fondo:{
-        marginTop: Constants.statusBarHeight,
         flexGrow: 1,
     }
 })
