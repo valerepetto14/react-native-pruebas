@@ -2,14 +2,11 @@ import React from "react";
 import { Button, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import StyledText from "./StyledText";
 import StyleTitle from "./StyleTitle";
-import RepoNavigator from "../navigators/RepoNavigator";
 import { useNavigation } from "@react-navigation/native";
-import RepoStack from "../navigators/RepoNavigator";
 import RepoDetails from "../screens/RepoDetails";
 
 const ItemRepo = (props) => {
   const navigation = useNavigation();
-  // const navigation = useNavigation();
   return (
     <View key={props.id} style={styles.container}>
       <TouchableOpacity

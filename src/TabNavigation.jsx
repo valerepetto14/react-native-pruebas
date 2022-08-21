@@ -1,32 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import Main from "./Main";
+import Main from "./componentes/Main";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { Icon } from "@rneui/themed";
 import { Ionicons } from "@expo/vector-icons";
-// probandooo
 
 // import Main from "../componentes/Main";
-import RepoDetails from "../screens/RepoDetails";
-import RepoStack from "../navigators/RepoNavigator";
-
-function HomeScreen() {
-  return (
-    <View>
-      <Main></Main>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import HomeStack from "./ScreenStacks/HomeStack";
+import SettingStack from "./ScreenStacks/SettingStack";
+import AccountStack from "./ScreenStacks/AccountStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +17,7 @@ export default function TabNavigation() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="restaurants"
+        initialRouteName="Repositorios"
         tabBarOptions={{
           activeTintColor: "#fff",
           inactiveTintColor: "lightgray",
@@ -47,33 +30,40 @@ export default function TabNavigation() {
         }}
       >
         <Tab.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{
-            tabBarLabel: "Ajustes",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="settings" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
           name="Repositorios"
-          component={HomeScreen}
+          component={HomeStack}
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="home" color={color} size={size} />
             ),
+            headerShown: false,
           }}
         />
         <Tab.Screen
-          name="repos"
-          component={RepoStack}
+          name="Ajustes"
+          component={SettingStack}
+          options={{
+            tabBarLabel: "Ajustes",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="settings" color={color} size={size} />
+            ),
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Cuenta"
+          component={AccountStack}
           options={{
             tabBarLabel: "Cuenta",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="person" color={color} size={size} />
+              <Ionicons
+                name="person-circle-outline"
+                color={color}
+                size={size}
+              />
             ),
+            headerShown: false,
           }}
         />
       </Tab.Navigator>
